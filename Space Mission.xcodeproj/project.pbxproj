@@ -18,6 +18,7 @@
 		E507A6B7280DFBCC00D8A439 /* Space_MissionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E507A6B6280DFBCC00D8A439 /* Space_MissionTests.swift */; };
 		E507A6C1280DFBCC00D8A439 /* Space_MissionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E507A6C0280DFBCC00D8A439 /* Space_MissionUITests.swift */; };
 		E507A6C3280DFBCC00D8A439 /* Space_MissionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E507A6C2280DFBCC00D8A439 /* Space_MissionUITestsLaunchTests.swift */; };
+		E507A6D0280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav in Resources */ = {isa = PBXBuildFile; fileRef = E507A6CF280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		E507A6BC280DFBCC00D8A439 /* Space MissionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Space MissionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E507A6C0280DFBCC00D8A439 /* Space_MissionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_MissionUITests.swift; sourceTree = "<group>"; };
 		E507A6C2280DFBCC00D8A439 /* Space_MissionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_MissionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E507A6CF280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-arcade-retro-jump-223.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				E507A69E280DFBCB00D8A439 /* GameScene.sks */,
 				E507A6A0280DFBCB00D8A439 /* Actions.sks */,
 				E507A6A2280DFBCB00D8A439 /* GameScene.swift */,
+				E507A6CF280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav */,
 				E507A6A4280DFBCB00D8A439 /* GameViewController.swift */,
 				E507A6A6280DFBCB00D8A439 /* Main.storyboard */,
 				E507A6A9280DFBCC00D8A439 /* Assets.xcassets */,
@@ -235,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E507A6D0280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav in Resources */,
 				E507A6A8280DFBCB00D8A439 /* Main.storyboard in Resources */,
 				E507A69F280DFBCB00D8A439 /* GameScene.sks in Resources */,
 				E507A6AA280DFBCC00D8A439 /* Assets.xcassets in Resources */,
@@ -448,9 +452,12 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,9 +483,12 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

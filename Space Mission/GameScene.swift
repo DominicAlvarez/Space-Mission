@@ -16,7 +16,7 @@ class GameScene: SKScene {
     let player = SKSpriteNode(imageNamed: "playerShip")
     
     let bulletSound = SKAction.playSoundFileNamed("mixkit-arcade-retro-jump-223.wav", waitForCompletion: false)
-    
+    // Functions to randomize
     func random() -> CGFloat{
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
     }
@@ -25,6 +25,7 @@ class GameScene: SKScene {
     }
     
     var gameArea: CGRect
+    // Creating a universal max size of the screen no matter which device it is on
     override init(size: CGSize){
         let maxAsepctRation: CGFloat = 16.0/9.0
         let playableWitdh = size.height / maxAsepctRation
@@ -38,7 +39,7 @@ class GameScene: SKScene {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // Set up our background and player on the screen
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
@@ -53,6 +54,7 @@ class GameScene: SKScene {
         
         startNewLevel()
         }
+    // Level Function
     func startNewLevel(){
         let spawn = SKAction.run(spawnEnemy)
         let waitToSpawn = SKAction.wait(forDuration: 1)
@@ -61,6 +63,8 @@ class GameScene: SKScene {
         self.run(spawnForever)
         
     }
+    // A function to fire the bullet from the spaceship.
+    // The bullet will be shooting from the base of the spaceship
     func fireBullet(){
         let bullet = SKSpriteNode(imageNamed: "bullet")
         bullet.setScale(1)
@@ -74,6 +78,8 @@ class GameScene: SKScene {
         bullet.run(bulletSequence)
         
     }
+    // A function to spawn the enemy ships
+    // The ships will attack from random angles on the display
     func spawnEnemy(){
         let randomXStart = random(min: gameArea.minX, max: gameArea.maxX)
         let randomXEnd = random(min: gameArea.minX, max: gameArea.maxX)
@@ -93,14 +99,13 @@ class GameScene: SKScene {
         enemy.run(enemySequence)
         
         let dx = endPoint.x - startPoint.x
-        let dy = endPoint.y - endPoint.y
+        let dy = endPoint.y - startPoint.y
         let rotateAmount = atan2(dy, dx)
         enemy.zRotation = rotateAmount
         
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         fireBullet()
-        spawnEnemy()
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches{

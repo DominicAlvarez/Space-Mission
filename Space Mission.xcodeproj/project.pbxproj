@@ -19,6 +19,8 @@
 		E507A6C1280DFBCC00D8A439 /* Space_MissionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E507A6C0280DFBCC00D8A439 /* Space_MissionUITests.swift */; };
 		E507A6C3280DFBCC00D8A439 /* Space_MissionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E507A6C2280DFBCC00D8A439 /* Space_MissionUITestsLaunchTests.swift */; };
 		E507A6D0280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav in Resources */ = {isa = PBXBuildFile; fileRef = E507A6CF280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav */; };
+		E5ED3E7D281C8AE800E435A5 /* MG2NHPK-explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5ED3E7C281C8AE800E435A5 /* MG2NHPK-explosion.mp3 */; };
+		E5ED3E7F281C8C9D00E435A5 /* Cafe Matcha.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5ED3E7E281C8C9D00E435A5 /* Cafe Matcha.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,9 @@
 		E507A6C0280DFBCC00D8A439 /* Space_MissionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_MissionUITests.swift; sourceTree = "<group>"; };
 		E507A6C2280DFBCC00D8A439 /* Space_MissionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_MissionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E507A6CF280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-arcade-retro-jump-223.wav"; sourceTree = "<group>"; };
+		E5ED3E7C281C8AE800E435A5 /* MG2NHPK-explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "MG2NHPK-explosion.mp3"; sourceTree = "<group>"; };
+		E5ED3E7E281C8C9D00E435A5 /* Cafe Matcha.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cafe Matcha.ttf"; sourceTree = "<group>"; };
+		E5ED3E80281C8DC100E435A5 /* Space-Mission-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Space-Mission-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +109,14 @@
 		E507A69B280DFBCB00D8A439 /* Space Mission */ = {
 			isa = PBXGroup;
 			children = (
+				E5ED3E80281C8DC100E435A5 /* Space-Mission-Info.plist */,
 				E507A69C280DFBCB00D8A439 /* AppDelegate.swift */,
 				E507A69E280DFBCB00D8A439 /* GameScene.sks */,
 				E507A6A0280DFBCB00D8A439 /* Actions.sks */,
 				E507A6A2280DFBCB00D8A439 /* GameScene.swift */,
+				E5ED3E7E281C8C9D00E435A5 /* Cafe Matcha.ttf */,
 				E507A6CF280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav */,
+				E5ED3E7C281C8AE800E435A5 /* MG2NHPK-explosion.mp3 */,
 				E507A6A4280DFBCB00D8A439 /* GameViewController.swift */,
 				E507A6A6280DFBCB00D8A439 /* Main.storyboard */,
 				E507A6A9280DFBCC00D8A439 /* Assets.xcassets */,
@@ -238,10 +246,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5ED3E7F281C8C9D00E435A5 /* Cafe Matcha.ttf in Resources */,
 				E507A6D0280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav in Resources */,
 				E507A6A8280DFBCB00D8A439 /* Main.storyboard in Resources */,
 				E507A69F280DFBCB00D8A439 /* GameScene.sks in Resources */,
 				E507A6AA280DFBCC00D8A439 /* Assets.xcassets in Resources */,
+				E5ED3E7D281C8AE800E435A5 /* MG2NHPK-explosion.mp3 in Resources */,
 				E507A6AD280DFBCC00D8A439 /* LaunchScreen.storyboard in Resources */,
 				E507A6A1280DFBCB00D8A439 /* Actions.sks in Resources */,
 			);
@@ -449,6 +459,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6Q83JPZY49;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Space-Mission-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -480,6 +491,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6Q83JPZY49;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Space-Mission-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

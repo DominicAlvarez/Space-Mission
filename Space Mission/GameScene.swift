@@ -6,10 +6,8 @@
 //
 import SpriteKit
 import GameplayKit
-
+var gameScore = 0
 class GameScene: SKScene, SKPhysicsContactDelegate{
-    
-    var gameScore = 0
     let ScoreLabel = SKLabelNode(fontNamed: "Cafe Matcha")
     
     var LivesNumber = 3
@@ -17,13 +15,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     var levelNumber = 0
     
+    enum gameState{
+        case preGame // Before starting game
+        case inGame // User is currently playing
+        case endGame // After user has lost all lives or been destroyed
+    }
+    var currentGameState = gameState.inGame
+    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     let player = SKSpriteNode(imageNamed: "playerShip")
     
     let bulletSound = SKAction.playSoundFileNamed("mixkit-arcade-retro-jump-223.wav", waitForCompletion: false)
-    let explosionSound = SKAction.playSoundFileNamed("MG2NHPK-explosion.mp3", waitForCompletion: false)
+    let explosionSound = SKAction.playSoundFileNamed("big-impact-7054.mp3", waitForCompletion: false)
     
     struct physicsCategories{
         static let None: UInt32 = 0
@@ -31,6 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         static let Bullet: UInt32 = 0b10 // 2
         static let Enemy: UInt32 = 0b100 // 4
     }
+    
     // Functions to randomize
     func random() -> CGFloat{
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
@@ -57,6 +63,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     // Set up our background and player on the screen
     override func didMove(to view: SKView) {
+        gameScore = 0
+        
         self.physicsWorld.contactDelegate = self
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
@@ -100,6 +108,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let scaleDown = SKAction.scale(to: 1, duration: 0.2)
         let scaleSequence = SKAction.sequence([scaleUp, scaleDown])
         LivesLabel.run(scaleSequence)
+        if LivesNumber == 0{
+            runGameOver()
+        }
     }
     func addScore(){
         gameScore+=1
@@ -108,6 +119,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if gameScore == 10 || gameScore == 25 || gameScore == 50{
             startNewLevel()
         }
+        
+    }
+    func runGameOver(){
+        currentGameState = gameState.endGame
+        
+        self.removeAllActions()
+        self.enumerateChildNodes(withName: "Bullet"){
+            bullet, stop in
+            bullet.removeAllActions()
+        }
+        self.enumerateChildNodes(withName: "Enemy"){
+            enemy, stop in
+            enemy.removeAllActions()
+        }
+        let changeScene = SKAction.run(changeScene)
+        let waitToChange = SKAction.wait(forDuration: 1)
+        let changeSceneSequence = SKAction.sequence([waitToChange, changeScene])
+        self.run(changeSceneSequence)
+        
+    }
+    func changeScene(){
+        let sceneToMoveTo = GameOverScene(size: self.size)
+        sceneToMoveTo.scaleMode = self.scaleMode
+        let myTransition = SKTransition.fade(withDuration: 0.5)
+        self.view!.presentScene(sceneToMoveTo, transition: myTransition)
         
     }
     
@@ -133,6 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             
             body1.node?.removeFromParent()
             body2.node?.removeFromParent()
+            runGameOver()
             
         }
         if body1.categoryBitMask == physicsCategories.Bullet && body2.categoryBitMask == physicsCategories.Enemy && (body2.node?.position.y)! < self.size.height {
@@ -186,10 +223,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.run(spawnForever, withKey: "spawningEnemies")
         
     }
+    
     // A function to fire the bullet from the spaceship.
     // The bullet will be shooting from the base of the spaceship
     func fireBullet(){
         let bullet = SKSpriteNode(imageNamed: "bullet")
+        bullet.name = "Bullet"
         bullet.setScale(1)
         bullet.position = player.position
         bullet.zPosition = 2
@@ -208,6 +247,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         bullet.run(bulletSequence)
         
     }
+    
     // A function to spawn the enemy ships
     // The ships will attack from random angles on the display
     func spawnEnemy(){
@@ -218,6 +258,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let endPoint = CGPoint(x: randomXEnd, y: -self.size.height * 0.2)
         
         let enemy = SKSpriteNode(imageNamed: "enemyShip")
+        enemy.name = "Enemy"
         enemy.setScale(1)
         enemy.position = startPoint
         enemy.zPosition = 2
@@ -233,7 +274,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let deleteEnemy = SKAction.removeFromParent()
         let lostLife = SKAction.run(loseALife)
         let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy, lostLife])
-        enemy.run(enemySequence)
+        
+        if currentGameState == gameState.inGame{
+            enemy.run(enemySequence)
+        }
         
         let dx = endPoint.x - startPoint.x
         let dy = endPoint.y - startPoint.y
@@ -241,15 +285,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         enemy.zRotation = rotateAmount
         
     }
+    // Player touches to fire
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        fireBullet()
+        if currentGameState == gameState.inGame{
+            fireBullet()
+        }
     }
+    
+    // Player movement
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches{
             let pointOfTouch = touch.location(in: self)
             let previousPointOfTouch = touch.previousLocation(in: self)
             let amountDragged = pointOfTouch.x - previousPointOfTouch.x
-            player.position.x += amountDragged
+            if currentGameState == gameState.inGame{
+                player.position.x += amountDragged
+            }
             
             if player.position.x > gameArea.maxX - player.size.width / 2 {
                 player.position.x = gameArea.maxX - player.size.width / 2

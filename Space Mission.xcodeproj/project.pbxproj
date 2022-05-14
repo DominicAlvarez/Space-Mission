@@ -19,7 +19,8 @@
 		E507A6C1280DFBCC00D8A439 /* Space_MissionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E507A6C0280DFBCC00D8A439 /* Space_MissionUITests.swift */; };
 		E507A6C3280DFBCC00D8A439 /* Space_MissionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E507A6C2280DFBCC00D8A439 /* Space_MissionUITestsLaunchTests.swift */; };
 		E507A6D0280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav in Resources */ = {isa = PBXBuildFile; fileRef = E507A6CF280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav */; };
-		E5ED3E7D281C8AE800E435A5 /* MG2NHPK-explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5ED3E7C281C8AE800E435A5 /* MG2NHPK-explosion.mp3 */; };
+		E5426FFE2830668F00587792 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5426FFD2830668F00587792 /* GameOverScene.swift */; };
+		E56FCE1B2820A1FE007CE2B7 /* big-impact-7054.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E56FCE1A2820A1FE007CE2B7 /* big-impact-7054.mp3 */; };
 		E5ED3E7F281C8C9D00E435A5 /* Cafe Matcha.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5ED3E7E281C8C9D00E435A5 /* Cafe Matcha.ttf */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +57,8 @@
 		E507A6C0280DFBCC00D8A439 /* Space_MissionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_MissionUITests.swift; sourceTree = "<group>"; };
 		E507A6C2280DFBCC00D8A439 /* Space_MissionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_MissionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E507A6CF280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-arcade-retro-jump-223.wav"; sourceTree = "<group>"; };
-		E5ED3E7C281C8AE800E435A5 /* MG2NHPK-explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "MG2NHPK-explosion.mp3"; sourceTree = "<group>"; };
+		E5426FFD2830668F00587792 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		E56FCE1A2820A1FE007CE2B7 /* big-impact-7054.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "big-impact-7054.mp3"; sourceTree = "<group>"; };
 		E5ED3E7E281C8C9D00E435A5 /* Cafe Matcha.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cafe Matcha.ttf"; sourceTree = "<group>"; };
 		E5ED3E80281C8DC100E435A5 /* Space-Mission-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Space-Mission-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -114,9 +116,10 @@
 				E507A69E280DFBCB00D8A439 /* GameScene.sks */,
 				E507A6A0280DFBCB00D8A439 /* Actions.sks */,
 				E507A6A2280DFBCB00D8A439 /* GameScene.swift */,
+				E5426FFD2830668F00587792 /* GameOverScene.swift */,
+				E56FCE1A2820A1FE007CE2B7 /* big-impact-7054.mp3 */,
 				E5ED3E7E281C8C9D00E435A5 /* Cafe Matcha.ttf */,
 				E507A6CF280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav */,
-				E5ED3E7C281C8AE800E435A5 /* MG2NHPK-explosion.mp3 */,
 				E507A6A4280DFBCB00D8A439 /* GameViewController.swift */,
 				E507A6A6280DFBCB00D8A439 /* Main.storyboard */,
 				E507A6A9280DFBCC00D8A439 /* Assets.xcassets */,
@@ -249,9 +252,9 @@
 				E5ED3E7F281C8C9D00E435A5 /* Cafe Matcha.ttf in Resources */,
 				E507A6D0280E29A700D8A439 /* mixkit-arcade-retro-jump-223.wav in Resources */,
 				E507A6A8280DFBCB00D8A439 /* Main.storyboard in Resources */,
+				E56FCE1B2820A1FE007CE2B7 /* big-impact-7054.mp3 in Resources */,
 				E507A69F280DFBCB00D8A439 /* GameScene.sks in Resources */,
 				E507A6AA280DFBCC00D8A439 /* Assets.xcassets in Resources */,
-				E5ED3E7D281C8AE800E435A5 /* MG2NHPK-explosion.mp3 in Resources */,
 				E507A6AD280DFBCC00D8A439 /* LaunchScreen.storyboard in Resources */,
 				E507A6A1280DFBCB00D8A439 /* Actions.sks in Resources */,
 			);
@@ -280,6 +283,7 @@
 			files = (
 				E507A6A3280DFBCB00D8A439 /* GameScene.swift in Sources */,
 				E507A6A5280DFBCB00D8A439 /* GameViewController.swift in Sources */,
+				E5426FFE2830668F00587792 /* GameOverScene.swift in Sources */,
 				E507A69D280DFBCB00D8A439 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

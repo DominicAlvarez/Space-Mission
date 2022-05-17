@@ -24,13 +24,13 @@ class GameOverScene: SKScene{
         gameOverText.zPosition = 1
         self.addChild(gameOverText)
         
-        let score = SKLabelNode(fontNamed: "Cafe Matcha")
-        score.text = "Score: \(gameScore)"
-        score.fontSize = 125
-        score.fontColor = SKColor.white
-        score.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.55)
-        self.zPosition = 1
-        self.addChild(score)
+        let scoreLabel = SKLabelNode(fontNamed: "Cafe Matcha")
+        scoreLabel.text = "Score: \(gameScore)"
+        scoreLabel.fontSize = 125
+        scoreLabel.fontColor = SKColor.white
+        scoreLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.55)
+        scoreLabel.zPosition = 1
+        self.addChild(scoreLabel)
         
         let defaults = UserDefaults()
         var highScoreNumber = defaults.integer(forKey: "highScoreSaved")
@@ -38,8 +38,8 @@ class GameOverScene: SKScene{
         if gameScore > highScoreNumber{
             highScoreNumber = gameScore
             defaults.set(highScoreNumber, forKey: "highScoreSaved")
-            
         }
+        
         let highScoreLabel = SKLabelNode(fontNamed: "Cafe Matcha")
         highScoreLabel.text = "High Score \(highScoreNumber)"
         highScoreLabel.fontSize = 125
